@@ -1,0 +1,8 @@
+#学习的网站：https://www.cnblogs.com/wbjxxzx/p/9942648.html
+
+
+#创建项目的时候创建成功，出现项目中没有node_modules，报错显示webpack-dev-server --inline --progress --config build/webpack.dev.conf.js
+#出现上面的情况，先要npm cache clean --force，在安装npm install，如果直接npm install可能不成功
+#参考网站：https://www.cnblogs.com/ning123/p/11108384.html
+
+#安装element-ui插件
