@@ -1,19 +1,15 @@
 <template>
-  <el-row>
-    <el-col :span="16">
-      <el-tabs v-model="activeIndex" @tab-click="handleClick">
-        <el-tab-pane label="计价规则" name="first">
-          <billing-rules></billing-rules>
-        </el-tab-pane>
-        <el-tab-pane label="取消规则" name="second">
-          <cancel-rules></cancel-rules>
-        </el-tab-pane>
-      </el-tabs>
-    </el-col>
-    <el-col :span="4">
-      <el-button type="primary" round>主要按钮</el-button>
-    </el-col>
-  </el-row>
+  <div class="main_item">
+    <el-tabs class="el_tb" v-model="activeIndex" @tab-click="handleClick">
+      <el-tab-pane label="计价规则" name="first">
+        <billing-rules></billing-rules>
+      </el-tab-pane>
+      <el-tab-pane label="取消规则" name="second">
+        <cancel-rules></cancel-rules>
+      </el-tab-pane>
+    </el-tabs>
+    <el-button class="el_btn el-icon-plus" type="primary" round> 添加按钮</el-button>
+  </div>
 </template>
 
 <script>
@@ -43,4 +39,15 @@ export default {
 </script>
 
 <style>
+ .main_item {
+    display: flex;
+    overflow: hidden;
+  }
+  .el-btn {
+    position: absolute;
+    width: 7.5rem;
+    height: 1.25rem;
+    right: 1.25rem;
+    top: 20px;
+  }
 </style>
