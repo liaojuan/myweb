@@ -3,12 +3,12 @@
     <el-form :inline="true">
       <el-form-item label="业务:">
         <el-select v-model="form.modeid" placeholder="请选择业务">
-          <el-option  v-for="item of professionList" :key="item.modeid" :label="item.name" :value="item.modeid">{{item.name}}</el-option>
+          <el-option v-for="(item,index) in professionList" @click.native="getCarMode(index)" :key="item.modeid" :label="item.name" :value="item.modeid">{{item.name}}</el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="车型:">
         <el-select v-model="form.carid" placeholder="请选择车型">
-          <el-option label="--请选择车型--" value="all"></el-option>
+          <el-option v-for="item of carlist" :key="item.carid" :label="item.name" :value="item.carid">{{item.name}}</el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="城市:">
@@ -39,12 +39,18 @@ export default {
         carid: '',
         code: '',
         adcode: ''
-      }
+      },
+      carlist: Array
     }
   },
   methods: {
     onCheck () {
       console.log(this.professionList)
+    },
+    getCarMode (index) {
+      this.carlist = [];
+      this.carlist = this.professionList[index];
+      console.log(this.carlist)
     }
   }
 }
