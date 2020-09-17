@@ -1,8 +1,53 @@
 <template>
-  <div>我是第一个组件发哈看干哈很关键阿卡卡零售价格逻辑啊改了几个假撒开个价手机关机就放假阿济格卡进该卡几个积分卡将国家级改那两个阿济格假按揭钢结构加副科级根据根据宫颈癌哈哈哈法案尴尬阿济格价格加干辣椒</div>
+  <div>
+    <el-form :inline="true">
+      <el-form-item label="业务:">
+        <el-select v-model="form.modeid" placeholder="请选择业务">
+          <el-option  v-for="item of professionList" :key="item.modeid" :label="item.name" :value="item.modeid">{{item.name}}</el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="车型:">
+        <el-select v-model="form.carid" placeholder="请选择车型">
+          <el-option label="--请选择车型--" value="all"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="城市:">
+        <el-select v-model="form.code" placeholder="请选择省份">
+          <el-option label="--请选择省份--" value="all"></el-option>
+        </el-select>
+        <el-select v-model="form.adcode" placeholder="请选择城市">
+          <el-option label="--请选择城市--" value="all"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onCheck">查询</el-button>
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 
 <script>
+export default {
+  name: 'BillingRules',
+  props: {
+    professionList: Array
+  },
+  data () {
+    return {
+      form: {
+        modeid: '',
+        carid: '',
+        code: '',
+        adcode: ''
+      }
+    }
+  },
+  methods: {
+    onCheck () {
+      console.log(this.professionList)
+    }
+  }
+}
 </script>
 
 <style>
