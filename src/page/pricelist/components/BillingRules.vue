@@ -47,15 +47,20 @@ export default {
     onCheck () {
       console.log(this.professionList)
     },
-    // getCarMode (index) {
-    //   this.carlist = [];
-    //   this.carlist = this.professionList[index].carlist;
-    //   console.log(index)
-    // }
+    /**
+     * @param {Object} mlist
+     * 根据选择的业务，动态的修改后面的相应的车型
+     */
     getCarMode (mlist) {
       this.carlist = [];
       this.carlist = mlist;
-      console.log(mlist)
+      this.setCarTypeText();
+    },
+    /**
+     * 设置车型显示
+     */
+    setCarTypeText () {
+      this.form.carid = null;
     }
   }
 }

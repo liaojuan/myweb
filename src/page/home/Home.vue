@@ -48,7 +48,7 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item>我的消息</el-dropdown-item>
-                  <el-dropdown-item>设置</el-dropdown-item>
+                  <el-dropdown-item @click.native="setting">设置</el-dropdown-item>
                   <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
@@ -86,6 +86,9 @@ export default {
           this.$router.push('/login');
         })
         .catch(() => { });
+    },
+    setting: function () {
+      this.$router.push('/pricelist');
     },
     handleOpen (key, keyPath) {
       console.log(key, keyPath);
