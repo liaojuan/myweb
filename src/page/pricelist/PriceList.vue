@@ -55,25 +55,31 @@ export default {
         const data = res.data
         this.professionList = data.professionList
       }
+    },
+    /**
+     * 获取全局配置  未封装之前的操作
+     */
+    getGlobalConfig () {
+      axios({
+        url: 'https://papi.dibugroup.net/global_config',
+        method: 'get',
+        params: {
+          version: '1'
+        },
+        timeout: 10000
+      }).then(function (res) {
+        console.log(res, '成功');
+      }).catch(function (res) {
+        console.log(res, '错误');
+      })
     }
   },
   mounted () {
-    this.getProfession()
+    this.getProfession();
+    this.getGlobalConfig();
   }
 }
 </script>
 
 <style>
- /* .main_item {
-    position: relative;
-  }
-  .el_tb {
-    width: 100%;
-  }
-  .el-btn {
-    position: absolute;
-    size: mini;
-    right: 1.25rem;
-    top: 0.625rem;
-  } */
 </style>
