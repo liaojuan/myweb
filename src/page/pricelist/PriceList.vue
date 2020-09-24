@@ -17,11 +17,16 @@
  * axios 引入axios请求
  */
 import axios from 'axios'
+// import { signin } from '../../commons/api.js'
+// import { Message, MessageBox } from 'element-ui'
+import { getTable1H2O } from '../../commons/index.js'
 /**
  * 引入相应的页面
  */
 import BillingRules from './components/BillingRules'
 import CancelRules from './components/CancelRules'
+
+// const backgroundImage = 'https://img.alicdn.com/tfs/TB1zsNhXTtYBeNjy1XdXXXXyVXa-2252-1500.png';
 
 export default {
   name: 'PriceList',
@@ -72,11 +77,47 @@ export default {
       }).catch(function (res) {
         console.log(res, '错误');
       })
+    // },
+    // getGlobalSuccess (res) {
+    //   console.log(res)
+    // },
+    // getGlobalFailure (res) {
+    //   console.log(res)
     }
   },
   mounted () {
     this.getProfession();
     this.getGlobalConfig();
+    getTable1H2O().then(function (res) {
+      console.log(res)
+    });
+    // getTable2H2O().then(function (res) {
+
+    // });
+    // getTable1H2O().then(data => {
+    //   console.log(data)
+    // });
+    // this.$api.get(
+    //   '/global_config',
+    //   {'DIBU_ACCESS_TOKEN': null, 'APP_VERSION': 1, 'CHANNEL': ANDROID, 'CLIENT_TYPE': passenger},
+    //   {'version': '1'},
+    //   getGlobalSuccess(res),
+    //   getGlobalFailure(res)
+    // )
+    // async test () {
+    //   signin({
+    //     version: 1
+    //   }).then((data) => {
+    //     Message({
+    //       message: data.msg,
+    //       type: 'success',
+    //       duration: 1 * 200
+    //     })
+    //     setTimeout(() => {
+    //       window.location.href = '/'
+    //     }, 200)
+    //   })
+    // }
   }
 }
 </script>

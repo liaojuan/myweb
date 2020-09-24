@@ -6,9 +6,14 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.css'
+// 引入自己封装的axioshttps请求
+// import api from '@/commons/axioshttp.js'
+import axios from '@/commons/https.js'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
+// Vue.prototype.$api = api
+Vue.prototype.$axios = axios
 
 /* eslint-disable no-new */
 new Vue({
