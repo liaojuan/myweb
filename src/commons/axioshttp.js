@@ -5,7 +5,7 @@ import axios from 'axios'
 
 // 配置api接口地址
 var root = 'https://papi.dibugroup.net'
-axios.default.headers.post['content-Type'] = 'application/json;charset=UTF-8';
+// axios.default.headers.post['content-Type'] = 'application/json;charset=UTF-8';
 
 // 自定义判断元素类型js
 function toType (obj) {
@@ -64,7 +64,7 @@ function apiAxios (method, url, headers, params, success, failure) {
     withCredentials: false
   })
     .then(function (res) {
-      if (res.data.error_code === 1000) {
+      if (res.data.status_code === 1000) {
         if (success) {
           // 使用success(data)方法
           success(res.data)
