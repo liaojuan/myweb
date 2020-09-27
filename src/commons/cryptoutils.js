@@ -75,20 +75,21 @@ export default {
     var encrypted = cryptoJs.AES.encrypt(srcs, key, {
       iv: iv,
       mode: cryptoJs.mode.CBC,
-      padding: cryptoJs.pad.ZERO
+      padding: cryptoJs.pad.Pkcs7
     });
     return cryptoJs.enc.Base64.stringify(encrypted.ciphertext);
   },
   testdecrypt (word) {
-    let base64 = cryptoJs.enc.Base64.parse(word);
+    let data = word.replace(/[\r\n]/g, '');
+    let base64 = cryptoJs.enc.Base64.parse(data);
     let src = cryptoJs.enc.Base64.stringify(base64);
 
     var decrypt = cryptoJs.AES.decrypt(src, key, {
       iv: iv,
       mode: cryptoJs.mode.CBC,
-      padding: cryptoJs.pad.ZERO
+      padding: cryptoJs.pad.Pkcs7
     });
-    var decryptedStr = decrypt.toString(cryptoJs.enc.UTF8);
+    var decryptedStr = decrypt.toString(cryptoJs.enc.Utf8);
     return decryptedStr.toString();
     // 第一种
     // let resData = decrypt.toString(cryptoJs.enc.Utf8).toString();

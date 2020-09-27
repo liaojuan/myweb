@@ -30,9 +30,9 @@ httpService.interceptors.request.use(
     //   // 让每个请求携带token
     //   config.headers['User-Token'] = '';
     // }
-    console.log(config, '测试');
-    config.params = cryptoutils.encrypt(config.params);
-    console.log(config, '加密数据');
+    // console.log(config, '测试');
+    config.params = cryptoutils.testencrypt(config.params);
+    console.log(config.params, '加密数据');
     return config;
   },
   error => {
@@ -47,7 +47,7 @@ httpService.interceptors.response.use(
     // 统一处理状态
     // const res = response.data;
     // console.log(response.data, '测试2');
-    const res = cryptoutils.decrypt(response.data);
+    const res = cryptoutils.testdecrypt(response.data);
     console.log(res, '解密数据');
     // if (res.statuscode !== 1) { // 需自定义
     //   // 返回异常
