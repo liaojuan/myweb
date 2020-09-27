@@ -9,17 +9,17 @@ import cryptoutils from './cryptoutils.js'
 // 创建axios实例
 const httpService = axios.create({
   baseURL: 'https://papi.dibugroup.net', //  api的base_url
-  timeout: 30000 //  请求超时时间
+  timeout: 30000, //  请求超时时间
   // responseType: 'json',
   // withCredentials: true, //  是否允许带cookie
-  // headers: {
-  //   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-  //   'X-Requested-With': 'XMLHttpRequest',
-  //   'DIBU_ACCESS_TOKEN': null,
-  //   'APP_VERSION': 1,
-  //   'CHANNEL': 'ANDROID',
-  //   'CLIENT_TYPE': 'passenger'
-  // }
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+    'X-Requested-With': 'XMLHttpRequest',
+    'DIBU_ACCESS_TOKEN': null,
+    'APP_VERSION': 1,
+    'CHANNEL': 'ANDROID',
+    'CLIENT_TYPE': 'passenger'
+  }
 });
 
 // request 拦截器

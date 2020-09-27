@@ -132,7 +132,7 @@ export default {
     this.getProfession();
     const TMPURL = ''; // url地址
     const params = {'version': '1'}; // 参数
-    studyaxios.get(TMPURL + '/global_config', params);
+    studyaxios.get(TMPURL + '/city_code', params);
     // this.getGlobalConfig();
     // this.getTest();
     // //第一次能访问
