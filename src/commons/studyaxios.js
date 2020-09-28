@@ -49,6 +49,12 @@ httpService.interceptors.response.use(
     // console.log(response.data, '测试2');
     const res = cryptoutils.testdecrypt(response.data);
     console.log(res, '解密数据');
+    if (res.status_code !== 1) {
+      return Promise.reject(new Error(
+        res.message));
+    } else {
+      return res;
+    }
     // if (res.statuscode !== 1) { // 需自定义
     //   // 返回异常
     //   return Promise.reject({
@@ -56,7 +62,7 @@ httpService.interceptors.response.use(
     //     message: res.message
     //   });
     // } else {
-    return response.data;
+    // return response.data;
     // }
   },
   // 处理
