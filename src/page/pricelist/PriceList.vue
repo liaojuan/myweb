@@ -133,50 +133,6 @@ export default {
     const TMPURL = ''; // url地址
     const params = {'version': '1'}; // 参数
     studyaxios.get(TMPURL + '/city_code', params);
-    // this.getGlobalConfig();
-    // this.getTest();
-    // //第一次能访问
-    // getTable1H2O().then(function (res) {
-    //   console.log(res)
-    // });
-    // getTable2H2O().then(function (res) {
-
-    // });
-    // getTable1H2O().then(data => {
-    //   console.log(data)
-    // });
-    // this.$api.get(
-    //   '/global_config',
-    //   {'DIBU_ACCESS_TOKEN': null, 'APP_VERSION': 1, 'CHANNEL': 'ANDROID', 'CLIENT_TYPE': 'passenger'},
-    //   {'version': '1'},
-    //   scccessRes => {
-    //     // console.log('成功----' + scccessRes)
-    //   },
-    //   failureRes => {
-    //     // console.log(failureRes)
-    //   }
-    // )
-    // async test () {
-    //   signin({
-    //     version: 1
-    //   }).then((data) => {
-    //     Message({
-    //       message: data.msg,
-    //       type: 'success',
-    //       duration: 1 * 200
-    //     })
-    //     setTimeout(() => {
-    //       window.location.href = '/'
-    //     }, 200)
-    //   })
-    // }
-    // request({ //  config
-    //   url: '/global_config',
-    // }, res => { //  success
-    //   console.log(res)
-    // }, err => { //failure
-    //   console.log(err)
-    // })
   }
 }
 </script>
