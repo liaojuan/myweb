@@ -32,7 +32,7 @@ httpService.interceptors.request.use(
     // }
     // console.log(config, '测试');
     config.params = cryptoutils.testencrypt(config.params);
-    console.log(config.params, '加密数据');
+    // console.log(config.params, '加密数据');
     return config;
   },
   error => {
@@ -47,23 +47,14 @@ httpService.interceptors.response.use(
     // 统一处理状态
     // const res = response.data;
     // console.log(response.data, '测试2');
-    const res = cryptoutils.testdecrypt(response.data);
-    console.log(res, '解密数据');
-    if (res.status_code !== 1) {
-      return Promise.reject(new Error(
-        res.message));
+    response.data = cryptoutils.testdecrypt(response.data);
+    // console.log(res, '解密数据');
+    if (response.status !== 200) {
+      // 参考这个 https://segmentfault.com/q/1010000011088770
+      return new Promise(() => {});
     } else {
-      return res;
+      return response.data;
     }
-    // if (res.statuscode !== 1) { // 需自定义
-    //   // 返回异常
-    //   return Promise.reject({
-    //     status: res.statuscode,
-    //     message: res.message
-    //   });
-    // } else {
-    // return response.data;
-    // }
   },
   // 处理
   error => {
