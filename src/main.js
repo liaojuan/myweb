@@ -10,11 +10,13 @@ import '@/styles/index.css'
 // import api from '@/commons/axioshttp.js'
 // import axios from '@/commons/https.js'
 import axios from 'axios'
+import studyaxios from '@/commons/study2http/studyhttp2.js'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 // Vue.prototype.$api = api
 Vue.prototype.axios = axios
+Vue.prototype.$studyaxios = studyaxios;
 
 /* eslint-disable no-new */
 new Vue({

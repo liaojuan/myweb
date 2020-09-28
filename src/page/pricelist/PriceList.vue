@@ -126,13 +126,23 @@ export default {
       }, error => {
         return Promise.resolve(error.response)
       }));
+    },
+    getCityList () {
+      // const params = {'version': '1'};
+      // this.$studyaxios.article.getCityList(params)
+      const params = {'version': '1'};
+      this.$studyaxios.article.getCityList({
+        version: '1'
+      }).then(res => {
+        console.log(res);
+      })
     }
   },
   mounted () {
     this.getProfession();
-    const TMPURL = ''; // url地址
-    const params = {'version': '1'}; // 参数
-    studyaxios.get(TMPURL + '/city_code', params);
+    // const TMPURL = ''; // url地址
+    // const params = {'version': '1'}; // 参数
+    // studyaxios.get(TMPURL + '/city_code', params);
   }
 }
 </script>
