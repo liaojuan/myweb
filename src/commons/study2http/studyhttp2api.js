@@ -8,6 +8,11 @@ const article = {
     return axios.get('${base.sq}/city_code', {
       params: params
     })
+  },
+  getCityList () {
+    return axios.get('${base.sq}/city_code', {
+      params: params
+    })
   }
   // // 新闻列表
   // articleList () {
